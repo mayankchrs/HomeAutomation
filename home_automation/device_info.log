@@ -6,3 +6,8 @@
 2020-04-06 01:17:58,772 django.utils.autoreload INFO     Watching for file changes with StatReloader
 2020-04-06 01:30:39,653 django.utils.autoreload INFO     Watching for file changes with StatReloader
 2020-04-06 01:32:07,316 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2020-04-06 01:45:28,416 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2020-04-06 01:45:40,767 django.request WARNING  Forbidden: /registration/
+2020-04-06 01:47:30,451 django.utils.autoreload INFO     C:\Users\mchouras\Desktop\Home Automation\home_automation\device_crud\models.py changed, reloading.
+2020-04-06 01:47:35,281 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2020-04-06 01:47:38,908 django.utils.autoreload INFO     C:\Users\mchouras\Desktop\Home Automation\home_automation\device_crud\models.py changed, reloading.

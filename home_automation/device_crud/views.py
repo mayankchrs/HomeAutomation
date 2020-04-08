@@ -62,7 +62,7 @@ def update_device(request, device_id):
 @api_view(["DELETE"])
 @csrf_exempt
 @permission_classes([IsAuthenticated])
-def delete_book(request, device_id):
+def delete_device(request, device_id):
     user = request.user.id
     try:
         book = Device.objects.get(added_by=user, id=device_id)

@@ -8,6 +8,7 @@ from .models import Room, Device
 from rest_framework import status
 from django.core.exceptions import ObjectDoesNotExist
 import json
+from rest_auth.views import django_login
 
 
 @api_view(["GET"])
@@ -15,8 +16,10 @@ import json
 @permission_classes([IsAuthenticated])
 def getdevice(request):
     user = request.user.id
-    devices = Device.objects.filter(added_by=user)
-    serializer = DeviceSerializer(Device, many=True)
+    devices = Device.objects.get(added_by=user)
+    print(devices)
+    serializer = DeviceSerializer(devices)
+    print(serializer)
     return JsonResponse({'devices': serializer.data}, safe=False, status=status.HTTP_200_OK)
 
 
@@ -24,12 +27,11 @@ def getdevice(request):
 @csrf_exempt
 @permission_classes([IsAuthenticated])
 def add_device(request):
-    payload = json.loads(request.body)
     user = request.user
     try:
-        room = Room.objects.get(id=payload["room"])
+        room = Room.objects.get(id=request.data['room'])
         device = Device.create(
-            name=payload["name"],
+            name=request.data['name'],
             room=room,
             added_by=user
         )
